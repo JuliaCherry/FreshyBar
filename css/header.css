@@ -1,0 +1,52 @@
+.header {
+  padding: 36px 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__btns {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__btn-order {
+  width: 24px;
+  height: 24px;
+}
+
+.header__btn {
+  display: block;
+}
+
+@media (max-width: 940px) {
+  .header {
+    padding: 34px 0 20px;
+  }
+
+  .header__btn-order {
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 31px 0;
+  }
+
+  .header__logo {
+    width: 120px;
+  }
+
+  .header__btn {
+    display: none;
+  }
+
+  .header__btn-order {
+    margin-right: 0;
+  }
+}
