@@ -1,17 +1,6 @@
-const API_URL = 'https://chain-perpetual-chord.glitch.me/';
-
-const price = {
-  Клубника: 60,
-  Банан: 50,
-  Манго: 70,
-  Киви: 55,
-  Маракуйя: 90,
-  Яблоко: 45,
-  Мята: 50,
-  Лед: 10,
-  Биоразлагаемый: 20,
-  Пластиковый: 0,
-};
+import { API_URL, price } from './config.js';
+import { scrollService } from './scrollService.js';
+import { getFormData } from './getFormData.js';
 
 const cartDataControl = {
   getLocalStorage() {
@@ -22,6 +11,7 @@ const cartDataControl = {
     item.idls = Math.random().toString(36).substring(2, 8);
     cartData.push(item);
     localStorage.setItem('freshyBarCard', JSON.stringify(cartData));
+    renderCountCart(cartData.length);
   },
   removeLocalStorage(idls) {
     const cartData = this.get();
@@ -30,11 +20,22 @@ const cartDataControl = {
       cartData.splice(index, 1);
     }
     localStorage.setItem('freshyBarCard', JSON.stringify(cartData));
+    renderCountCart(cartData.length);
   },
   clearLocalStorage() {
     localStorage.removeItem('freshyBarCard');
+    renderCountCart(0);
   },
 };
+
+const renderCountCart = count => {
+  const headerBtnOrder = document.querySelector('.header__btn-order');
+
+  headerBtnOrder.dataset.count =
+    count || cartDataControl.getLocalStorage().length;
+};
+
+renderCountCart();
 
 const getData = async () => {
   const responce = await fetch(`${API_URL}api/goods`);
@@ -58,29 +59,6 @@ const createCard = item => {
     <button class="btn cocktail__btn cocktail__btn-add" data-id="${item.id}">Добавить</button>
      `;
   return coctail;
-};
-
-const scrollService = {
-  scrollPosition: 0,
-  disabledScroll() {
-    this.scrollPosition = window.scrollY;
-    document.style.scrollBehavior = 'auto';
-
-    document.body.style.cssText = `
-    overflow: hidden;
-    position: fixed;
-    top: -${this.scrollPosition}px;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    padding-right: ${window.innerWidth - document.body.offsetWidth}px;
-    `;
-  },
-  enabledScroll() {
-    document.body.style.cssText = '';
-    window.scroll({ top: this.scrollPosition });
-    document.documentElement.style.scrollBehavior = '';
-  },
 };
 
 const modalController = ({ modal, btnOpen, time = 300, open, close }) => {
@@ -134,22 +112,6 @@ const modalController = ({ modal, btnOpen, time = 300, open, close }) => {
   modalElem.openModal = openModal;
 
   return { openModal, closeModal };
-};
-
-const getFormData = form => {
-  const formData = new FormData(form);
-  const data = {};
-  for (const [name, value] of formData.entries()) {
-    if (data[name]) {
-      if (!Array.isArray(data[name])) {
-        data[name] = [data[name]];
-      }
-      data[name].push(value);
-    } else {
-      data[name] = value;
-    }
-  }
-  return data;
 };
 
 const calculateTotalPrice = (form, startPrice) => {
@@ -284,7 +246,7 @@ const createCartItem = item => {
   li.classList.add('order__item');
   li.innerHTML = `
   <img class="order__img"
-        src="img/mango.jpg"
+        src="img/make-your-own.jpg"
          alt="${item.title}"
 />
 
@@ -297,9 +259,10 @@ const createCartItem = item => {
     ${
       item.topping
         ? Array.isArray(item.topping)
-          ? item.topping.map(
-              topping => `<li class="order__topping-item">${item.topping}</li>`,
-            )
+          ? item.topping
+              .map(topping => `<li class="order__topping-item">${topping}</li>`)
+              .toString()
+              .replace(',', '')
           : `<li class="order__topping-item">${item.topping}</li>`
         : ''
     }
@@ -356,7 +319,7 @@ const renderCart = () => {
         products: orderListData,
       }),
       headers: {
-        'Content-Type': 'aplication/json',
+        'Content-Type': 'application/json',
       },
     });
 

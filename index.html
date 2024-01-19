@@ -34,10 +34,13 @@
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/modal.css" />
 
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js" type="module"></script>
   </head>
   <body>
     <header class="header">
+      <h1 class="visually-hidden">
+        Freshy Bar - Свежие, Летние и Вкуснные Смузи
+      </h1>
       <div class="container header__container">
         <img class="header__logo" src="img/logo.svg" alt="Логотип Freshy Bar" />
         <div class="header__btns">
@@ -180,7 +183,7 @@
               />
             </label>
 
-            <button class="btn order__submit">Заказать</button>
+            <button class="btn order__submit" type="submit">Заказать</button>
           </form>
         </div>
       </div>

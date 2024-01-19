@@ -15,8 +15,26 @@
 }
 
 .header__btn-order {
+  position: relative;
   width: 24px;
   height: 24px;
+}
+
+.header__btn-order::after {
+  content: attr(data-count);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 10px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  color: #fff;
+  background-color: #f44;
+  border: 2px solid #f8e8e2;
+  border-radius: 50%;
+  line-height: 16px;
 }
 
 .header__btn {

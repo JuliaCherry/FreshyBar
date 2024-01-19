@@ -34,6 +34,8 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
 }
 
 *,
@@ -51,6 +53,7 @@ body {
   line-height: 1.1;
   background: var(--background-color) url('../img/bg.svg') no-repeat top/contain;
   color: var(--main-text);
+  overflow-x: hidden;
 }
 
 button {
@@ -79,6 +82,11 @@ fieldset {
   margin: 0;
 }
 
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
 .container {
   --width: 1180px;
   --padding: 30px;
@@ -93,6 +101,24 @@ fieldset {
   box-shadow: 0px 4px 20px 0px var(--shadow-color);
   color: var(--second-text);
   padding: 12px 28px;
+  transition:
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #ff6767;
+}
+
+.btn:active:not(:disabled) {
+  background-color: #52e36a;
+  box-shadow: 0px 4px 20px 0px #52e36a;
+}
+
+.btn:focus:not(:disabled) {
+  border-color: #d2b4a8;
 }
 
 .btn:disabled {

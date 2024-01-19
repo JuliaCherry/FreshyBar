@@ -42,8 +42,8 @@
 
 .hero__img {
   position: absolute;
-  width: 55%;
-  bottom: 13%;
+  width: 60%;
+  bottom: 9%;
   left: 50%;
   transform: translate(-50%);
 }
@@ -51,6 +51,7 @@
 .decoration {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 }
 
 .decoration__img {
@@ -64,8 +65,9 @@
   background-image: url(../img/decor_1.png);
   width: 223px;
   height: 214px;
-  top: 154px;
-  left: -70px;
+  filter: drop-shadow(0px 10px 30px rgba(164, 7, 2, 0.5));
+  top: 19%;
+  left: -6%;
   animation: flying1 2s ease-in-out;
 }
 
@@ -73,8 +75,9 @@
   background-image: url(../img/decor_2.png);
   width: 180px;
   height: 147px;
-  top: 90px;
-  right: 110px;
+  filter: drop-shadow(0px 4px 20px rgba(17, 7, 108, 0.5));
+  top: 11%;
+  right: 6%;
   animation: flying2 2s ease-in-out;
 }
 
@@ -82,8 +85,9 @@
   background-image: url(../img/decor_3.png);
   width: 223px;
   height: 214px;
-  bottom: -80px;
-  right: -50px;
+  filter: drop-shadow(0px 10px 30px rgba(164, 7, 2, 0.5));
+  bottom: -10%;
+  right: -5%;
   animation: flying3 2s ease-in-out;
 }
 
@@ -91,8 +95,9 @@
   background-image: url(../img/decor_4.png);
   width: 109px;
   height: 114px;
-  bottom: -24px;
-  left: 350px;
+  filter: drop-shadow(0px 4px 20px rgba(1, 30, 82, 0.5));
+  bottom: -4%;
+  left: 27%;
   animation: flying4 2s ease-in-out;
 }
 
@@ -100,8 +105,9 @@
   background-image: url(../img/decor_5.png);
   width: 46px;
   height: 41px;
-  top: 300px;
-  right: 5px;
+  filter: drop-shadow(0px 4px 20px rgba(223, 97, 15, 0.4));
+  top: 44%;
+  right: 0%;
   animation: flying5 2s ease-in-out;
 }
 
@@ -109,80 +115,81 @@
   background-image: url(../img/decor_6.png);
   width: 46px;
   height: 41px;
-  top: 410px;
-  left: 450px;
+  filter: drop-shadow(0px 4px 20px rgba(223, 97, 15, 0.4));
+  bottom: 46%;
+  left: 36%;
   animation: flying6 2s ease-in-out;
 }
 
 @keyframes flying1 {
   0% {
-    top: 0px;
-    left: -500px;
+    top: 100%;
+    left: -100%;
   }
 
   100% {
-    top: 154px;
-    left: -70px;
+    top: 19%;
+    left: -6%;
   }
 }
 
 @keyframes flying2 {
   0% {
-    top: 0px;
-    right: -200px;
+    top: 0%;
+    right: -100%;
   }
 
   100% {
-    top: 90px;
-    right: 110px;
+    top: 11%;
+    right: 6%;
   }
 }
 
 @keyframes flying3 {
   0% {
-    bottom: -500px;
-    right: -200px;
+    bottom: -100%;
+    right: -100%;
   }
 
   100% {
-    bottom: -80px;
-    right: -50px;
+    bottom: -10%;
+    right: -5%;
   }
 }
 
 @keyframes flying4 {
   0% {
-    bottom: -500px;
-    left: -200px;
+    bottom: -100%;
+    left: -50%;
   }
 
   100% {
-    bottom: -24px;
-    left: 350px;
+    bottom: -4%;
+    left: 27%;
   }
 }
 
 @keyframes flying5 {
   0% {
-    top: 0px;
-    right: -200px;
+    top: 0%;
+    right: -100%;
   }
 
   100% {
-    top: 300px;
-    right: 5px;
+    top: -200%;
+    right: -10%;
   }
 }
 
 @keyframes flying6 {
   0% {
-    top: -200px;
-    right: -0px;
+    bottom: 100%;
+    left: 200%;
   }
 
   100% {
-    top: 410px;
-    left: 450px;
+    bottom: 46%;
+    left: 36%;
   }
 }
 
@@ -207,6 +214,8 @@
   .decoration__img-1 {
     width: 131px;
     height: 125px;
+    top: 24%;
+    left: 1%;
   }
 
   .decoration__img-2 {
@@ -217,32 +226,36 @@
   .decoration__img-3 {
     width: 129px;
     height: 124px;
-    bottom: -40px;
+    bottom: -5%;
+    right: -3%;
   }
 
   @keyframes flying3 {
     0% {
-      bottom: -500px;
-      right: -200px;
+      bottom: -100%;
+      right: -100%;
     }
     100% {
-      bottom: -40px;
+      bottom: -5%;
+      right: -3%;
     }
   }
 
   .decoration__img-4 {
     width: 61px;
     height: 64px;
-    left: 270px;
+    left: 29%;
+    bottom: -2%;
   }
 
   @keyframes flying4 {
     0% {
-      bottom: -500px;
-      left: -200px;
+      bottom: -100%;
+      left: -50%;
     }
     100% {
-      left: 270px;
+      left: 29%;
+      bottom: -2%;
     }
   }
 
@@ -254,19 +267,18 @@
   .decoration__img-6 {
     width: 34px;
     height: 30px;
-    top: 330px;
-    left: 350px;
+    bottom: 43%;
+    left: 37%;
   }
 
   @keyframes flying6 {
     0% {
-      top: -200px;
-      right: -0px;
+      top: -80%;
+      right: 50%;
     }
 
     100% {
-      top: 330px;
-      left: 350px;
+      bottom: 43%;
     }
   }
 }
@@ -290,104 +302,102 @@
     border-radius: 12px;
   }
 
-  .hero__img {
-    bottom: 10%;
+  .hero__cup-orange {
+    margin-top: -35px;
   }
 
   .decoration__img-1 {
     width: 76px;
     height: 73px;
-    top: 86px;
-    left: -16px;
+    top: 21%;
+    left: -2%;
   }
 
   @keyframes flying1 {
     0% {
-      top: 0px;
-      left: -500px;
+      top: 0%;
+      left: -100%;
     }
 
     100% {
-      top: 86px;
-      left: -16px;
+      top: 21%;
+      left: -2%;
     }
   }
 
   .decoration__img-2 {
     width: 72px;
     height: 58px;
-    top: 40px;
-    right: 40px;
   }
 
   @keyframes flying2 {
     0% {
-      top: 0px;
-      right: -200px;
+      top: 0%;
+      right: -100%;
     }
 
     100% {
-      top: 40px;
-      right: 40px;
+      top: 11%;
+      right: 6%;
     }
   }
 
   .decoration__img-3 {
     width: 96px;
     height: 93px;
+    right: -5%;
+    bottom: -11%;
   }
 
   .decoration__img-4 {
     width: 41px;
     height: 44px;
-    left: 186px;
+    left: 28%;
   }
 
   @keyframes flying4 {
     0% {
-      bottom: -500px;
-      left: -200px;
+      bottom: -100%;
+      left: -80%;
     }
     100% {
-      left: 186px;
+      left: 28%;
     }
   }
 
   .decoration__img-5 {
     width: 22px;
     height: 19px;
-    top: 150px;
-    right: 0px;
   }
 
   @keyframes flying5 {
     0% {
-      top: 0px;
-      right: -200px;
+      top: 0%;
+      right: -100%;
     }
 
     100% {
-      top: 150px;
-      right: 0px;
+      top: -200%;
+      right: -10%;
     }
   }
 
   .decoration__img-6 {
     width: 25px;
     height: 23px;
-    top: 174px;
-    left: 238px;
+    bottom: 49%;
+    left: 36%;
   }
 
   @keyframes flying6 {
     0% {
-      top: -200px;
-      right: -0px;
+      bottom: 100%;
+      left: 36%;
     }
 
     100% {
-      top: 174px;
-      left: 238px;
+      bottom: 49%;
+      left: 36%;
     }
   }
 }
@@ -409,38 +419,38 @@
   .decoration__img-1 {
     width: 76px;
     height: 73px;
-    top: 114px;
-    left: 10px;
+    top: 99%;
+    left: 3%;
   }
 
   @keyframes flying1 {
     0% {
-      top: 0px;
-      left: -500px;
+      top: 0%;
+      left: -100%;
     }
 
     100% {
-      top: 114px;
-      left: 10px;
+      top: 99%;
+      left: 3%;
     }
   }
 
   .decoration__img-2 {
     width: 62px;
     height: 50px;
-    top: 76px;
-    right: 10px;
+    top: 76%;
+    right: 0%;
   }
 
   @keyframes flying2 {
     0% {
-      top: 0px;
-      right: -200px;
+      top: 0%;
+      right: -100%;
     }
 
     100% {
-      top: 76px;
-      right: 10px;
+      top: 76%;
+      right: 0%;
     }
   }
 
@@ -455,19 +465,19 @@
   .decoration__img-5 {
     width: 25px;
     height: 23px;
-    top: 140px;
-    right: 122px;
+    top: 100%;
+    right: 38%;
   }
 
   @keyframes flying5 {
     0% {
-      top: 0px;
-      right: -200px;
+      top: 50%;
+      right: 0%;
     }
 
     100% {
-      top: 140px;
-      right: 122px;
+      top: 100%;
+      right: 38%;
     }
   }
 
